@@ -38,12 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'users',
-    'leagues',
-    'players',
-    'market',
-    'matchdays',
-    'ranking',
+    'apps.users',
+    'apps.leagues',
+    'apps.players',
+    'apps.market',
+    'apps.matchdays',
+    'apps.ranking',
+    'apps.team',
 ]
 
 MIDDLEWARE = [
@@ -105,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
