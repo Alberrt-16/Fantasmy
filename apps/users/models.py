@@ -10,6 +10,7 @@ class User(AbstractUser):
         ('user', 'Usuario Comun'),
     )
 
+    name = models.CharField(max_length=36, default='El Pepe')
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='user')
 def __str__(self):
         return self.username

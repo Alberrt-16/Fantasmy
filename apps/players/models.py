@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Player(models.Model):
 
     POSITION_CHOICES = (
@@ -18,9 +17,17 @@ class Player(models.Model):
     )
 
     name = models.CharField(max_length=100)
-    team = models.CharField(max_length=100)
     position = models.CharField(max_length=3, choices=POSITION_CHOICES)
     status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='DIS')
+
+    team = models.ForeignKey(
+    'team.Team',         
+    on_delete=models.SET_NULL,
+    null=True,
+    blank=True,
+    related_name='FutPlayers',
+)
+
 
     price = models.FloatField(default=10000000)
     points = models.IntegerField(default=0)

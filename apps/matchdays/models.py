@@ -1,6 +1,4 @@
 from django.db import models
-from apps.players.models import Player
-from apps.team.models import Team
 
 
 class Matchday(models.Model):
@@ -26,7 +24,7 @@ class PlayerMatchdayStats(models.Model):
         ('loss', 'Derrota'),
     )
 
-    player = models.ForeignKey(Player, on_delete=models.CASCADE)
+    player = models.ForeignKey('players.Player', on_delete=models.CASCADE)
     matchday = models.ForeignKey(Matchday, on_delete=models.CASCADE)
 
     goals = models.IntegerField(default=0)
@@ -53,7 +51,7 @@ class PlayerMatchdayStats(models.Model):
 
 class TeamMatchdayPoints(models.Model):
 
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    team = models.ForeignKey('team.Team', on_delete=models.CASCADE)
     matchday = models.ForeignKey(Matchday, on_delete=models.CASCADE)
 
     points = models.IntegerField(default=0)
